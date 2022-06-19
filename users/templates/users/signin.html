@@ -1,1 +1,22 @@
 {% extends 'users/signup.html' %}
+
+<!--  -->
+
+{% block title %}
+<title>Sign In</title>
+{% endblock %}
+
+<!--  -->
+
+{% block form_heading %}
+<h1>Sign In</h1>
+{% endblock %}
+
+<!--  -->
+
+{% block option %}
+<input type="submit" value="Sign In" />
+<p>
+  Don't have an account yet? <a href="{% url 'users-signup' %}">Sign Up</a>
+</p>
+{% endblock %}

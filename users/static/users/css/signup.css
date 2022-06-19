@@ -1,1 +1,158 @@
-/* No CSS *//*# sourceMappingURL=signup.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.03vw;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("../images/neighborhood.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/neighborhood.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .form-container {
+  border-radius: 0.5vw;
+  padding: 5% 10%;
+  -webkit-backdrop-filter: blur(0.5vw);
+          backdrop-filter: blur(0.5vw);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-animation: appear 1s;
+          animation: appear 1s;
+}
+
+main .form-container h1 {
+  color: #00c58d;
+  text-transform: capitalize;
+  font-size: 2.2vw;
+  font-weight: 700;
+  margin-bottom: 10%;
+}
+
+main .form-container form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main .form-container form label {
+  color: #fff;
+  font-size: 0.9vw;
+  font-weight: 400;
+  margin: 3% 0;
+  width: 100%;
+}
+
+main .form-container form .helptext {
+  display: none;
+}
+
+main .form-container form input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 0.1vw solid #00c58d;
+  margin-bottom: 5%;
+  color: #fff;
+  padding: 2%;
+  font-size: 0.9vw;
+}
+
+main .form-container form #id_email {
+  margin-bottom: 7%;
+}
+
+main .form-container form #id_password {
+  margin-bottom: 10%;
+}
+
+main .form-container form input[type="submit"] {
+  color: #fff;
+  background-color: #00c58d;
+  padding: 5%;
+  font-size: 1vw;
+  font-weight: 500;
+  text-transform: capitalize;
+  border-radius: 0.5vw;
+  margin-top: 5%;
+}
+
+main .form-container form p {
+  color: #fff;
+  font-size: 0.8vw;
+}
+
+main .form-container form p a {
+  color: #00c58d;
+  text-decoration: none;
+}
+
+main .form-container form p a:hover {
+  color: #fff;
+}
+/*# sourceMappingURL=signup.css.map */

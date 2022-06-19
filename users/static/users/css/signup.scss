@@ -1,0 +1,101 @@
+@import "mixins";
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url("../images/neighborhood.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .form-container {
+    border-radius: 0.5vw;
+    padding: 5% 10%;
+    backdrop-filter: blur(0.5vw);
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    animation: appear 1s;
+    h1 {
+      color: $primary_color;
+      text-transform: capitalize;
+      font-size: 2.2vw;
+      font-weight: 700;
+      margin-bottom: 10%;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      label {
+        color: #fff;
+        font-size: 0.9vw;
+        font-weight: 400;
+        margin: 3% 0;
+        width: 100%;
+      }
+      .helptext {
+        display: none;
+      }
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        border-bottom: 0.1vw solid $primary_color;
+        margin-bottom: 5%;
+        color: #fff;
+        padding: 2%;
+        font-size: 0.9vw;
+      }
+
+      #id_email {
+        margin-bottom: 7%;
+      }
+
+      #id_password {
+        margin-bottom: 10%;
+      }
+
+      input[type="submit"] {
+        color: #fff;
+        background-color: $primary_color;
+        padding: 5%;
+        font-size: 1vw;
+        font-weight: 500;
+        text-transform: capitalize;
+        border-radius: 0.5vw;
+        margin-top: 5%;
+      }
+
+      p {
+        color: #fff;
+        font-size: 0.8vw;
+        a {
+          color: $primary_color;
+          text-decoration: none;
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
