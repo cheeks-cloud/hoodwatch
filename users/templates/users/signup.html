@@ -17,10 +17,16 @@
   </head>
   <body>
     <main>
-      <div class="welcome"></div>
+      <div class="welcome">
+        <h1>Welcome to <span>HoodWatch</span>.</h1>
+        <h2>
+          An application that keeps you in the know when it comes to all things
+          neighborhood.
+        </h2>
+      </div>
       <div class="form-container">
         {% block form_heading %}
-        <h2>Create an Account</h2>
+        <h3>Create an Account</h3>
         {% endblock %}
         <form method="POST">
           {% csrf_token %}
