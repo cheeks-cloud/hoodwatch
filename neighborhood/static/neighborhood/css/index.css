@@ -88,6 +88,7 @@ main header .left {
 }
 
 main header .left .logo {
+  width: 30%;
   margin-right: 10%;
 }
 
@@ -102,6 +103,10 @@ main header .left .logo a h1 {
 
 main header .left .logo a h1 span {
   color: #00c58d;
+}
+
+main header .left .links {
+  width: 70%;
 }
 
 main header .left .links ul {
@@ -196,5 +201,176 @@ main header .right .info a:hover {
   color: #fff;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+}
+
+main .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 87.5%;
+  padding: 3%;
+}
+
+main .content .left {
+  width: 47%;
+  height: 100%;
+  border-radius: 0.5vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4% 5%;
+}
+
+main .content .left .hood h3 {
+  color: #00c58d;
+  text-transform: capitalize;
+  font-size: 1.5vw;
+}
+
+main .content .left .hood p {
+  color: #fff;
+  margin: 4% 0;
+  font-size: 1.1vw;
+  margin-left: 3%;
+}
+
+main .content .left .hood p span {
+  color: #00c58d;
+  font-weight: 500;
+}
+
+main .content .left .hood .cta {
+  margin-top: 10%;
+}
+
+main .content .left .hood .cta a {
+  margin-left: 3%;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00c58d;
+  border: 0.1vw solid #00c58d;
+  padding: 1.5% 3%;
+  margin-right: 3%;
+  border-radius: 0.3vw;
+  font-size: 0.8vw;
+  font-weight: 500;
+}
+
+main .content .left .hood .cta a:hover {
+  background-color: transparent;
+  color: #00c58d;
+}
+
+main .content .left .businesses {
+  margin-top: 12%;
+  width: 100%;
+  height: 35%;
+}
+
+main .content .left .businesses h3 {
+  color: #00c58d;
+  text-transform: capitalize;
+  font-size: 1.5vw;
+  margin-bottom: 5%;
+}
+
+main .content .left .businesses .all-businesses {
+  height: 100%;
+  overflow: auto;
+}
+
+main .content .left .businesses .all-businesses::-webkit-scrollbar {
+  display: none;
+}
+
+main .content .left .businesses .all-businesses span {
+  text-align: center;
+  display: inline-block;
+  width: 28%;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00c58d;
+  border: 0.1vw solid #00c58d;
+  padding: 1.5% 3%;
+  margin: 2%;
+  border-radius: 0.3vw;
+  font-size: 0.8vw;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+main .content .left .businesses .all-businesses span:hover {
+  background-color: transparent;
+  color: #00c58d;
+}
+
+main .content .right {
+  width: 47%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5vw;
+  padding: 4% 5%;
+}
+
+main .content .right .posts {
+  width: 100%;
+  height: 100%;
+}
+
+main .content .right .posts h3 {
+  color: #00c58d;
+  text-transform: capitalize;
+  font-size: 1.5vw;
+  padding-bottom: 3%;
+}
+
+main .content .right .posts .all-posts {
+  overflow: auto;
+  height: 90%;
+  width: 100%;
+}
+
+main .content .right .posts .all-posts::-webkit-scrollbar {
+  display: none;
+}
+
+main .content .right .posts .all-posts .post {
+  width: 100%;
+  margin-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main .content .right .posts .all-posts .post .image {
+  width: 30%;
+  margin-right: 5%;
+  border-radius: 0.5vw;
+}
+
+main .content .right .posts .all-posts .post .image img {
+  width: 100%;
+  border-radius: 0.5vw;
+}
+
+main .content .right .posts .all-posts .post .excerpt {
+  width: 65%;
+}
+
+main .content .right .posts .all-posts .post .excerpt a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9vw;
+}
+
+main .content .right .posts .all-posts .post .excerpt a:hover {
+  color: #00c58d;
 }
 /*# sourceMappingURL=index.css.map */
