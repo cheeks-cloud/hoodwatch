@@ -74,7 +74,7 @@ main .form-container {
           animation: appear 1s;
 }
 
-main .form-container h1 {
+main .form-container h2 {
   color: #00c58d;
   text-transform: capitalize;
   font-size: 2vw;

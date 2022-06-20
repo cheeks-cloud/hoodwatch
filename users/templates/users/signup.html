@@ -17,9 +17,10 @@
   </head>
   <body>
     <main>
+      <div class="welcome"></div>
       <div class="form-container">
         {% block form_heading %}
-        <h1>Create an Account</h1>
+        <h2>Create an Account</h2>
         {% endblock %}
         <form method="POST">
           {% csrf_token %}
