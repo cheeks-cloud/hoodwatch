@@ -1,37 +1,85 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;
-  letter-spacing: 0.05vw;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.03vw;
 }
 
-$primary_color: #009ff6;
-$text_color: #dcdddd;
+$primary_color: #00c58d;
+$text_color: #505050;
 $background_color: #1c1d21;
 $tags_color: #242528;
 
-@keyframes shake {
+@keyframes appear {
   0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(10deg);
-  }
-
-  50% {
-    transform: rotate(0deg);
-  }
-
-  75% {
-    transform: rotate(10deg);
+    opacity: 0;
   }
 
   100% {
-    transform: rotate(0deg);
+    opacity: 100%;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 501px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-pro {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    @content;
+  }
+}
+
+// @mixin widescreen CSS {
+//     @media (min-width: 1441px) and (max-width: 1920px) {
+//         @content;
+//     }
+// }
+
+// @mixin ultrawide {
+//   @media (min-width: 1921px) {
+//     @content;
+//   }
+// }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.03vw;
+}
+
+$primary_color: #00c58d;
+$text_color: #505050;
+$background_color: #1c1d21;
+$tags_color: #242528;
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
   }
 }
 

@@ -1,0 +1,108 @@
+@import "mixins";
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../images/neighborhood.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  height: 100%;
+  header {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 4% 3% 3% 3%;
+    .left {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .logo {
+        margin-right: 10%;
+        a {
+          text-decoration: none;
+          h1 {
+            color: #fff;
+            font-size: 2.5vw;
+            span {
+              color: $primary_color;
+            }
+          }
+        }
+      }
+      .links {
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          list-style: none;
+          li {
+            margin: 0 10%;
+            a {
+              text-decoration: none;
+              color: #fff;
+              transition: 0.2s ease-in-out;
+              font-size: 1vw;
+              font-weight: 500;
+              &:hover {
+                color: $primary_color;
+                transition: 0.2s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .image {
+        width: 4vw;
+        height: 4vw;
+        outline: none;
+        border: 0.15vw solid $primary_color;
+        padding: 0.5%;
+        border-radius: 50%;
+        margin-left: 4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          border-radius: 50%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .info {
+        text-align: right;
+        p {
+          color: #fff;
+          font-size: 1vw;
+        }
+        a {
+          text-decoration: none;
+          color: $primary_color;
+          font-size: 0.9vw;
+          transition: 0.2s ease-in-out;
+          &:hover {
+            color: #fff;
+            transition: 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

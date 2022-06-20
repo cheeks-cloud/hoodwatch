@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'neighborhood/css/index.css' %}" />
     <link
       rel="shortcut icon"
       href="{% static 'neighborhood/images/community.png' %}"
@@ -13,6 +14,33 @@
     <title>Home</title>
   </head>
   <body>
-    <h1>The home is working . . .</h1>
+    <main>
+      <header>
+        <div class="left">
+          <div class="logo">
+            <a href="{% url 'neighborhood-home' %}">
+              <h1>Hood<span>Watch</span></h1></a
+            >
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="">Posts</a></li>
+              <li><a href="">Businesses</a></li>
+              <li><a href="">Profile</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="right">
+          <div class="info">
+            <p>Username</p>
+            <a href="{% url 'users-signout' %}">Sign Out</a>
+          </div>
+          <div class="image">
+            <img src="{% static 'neighborhood/images/sam.jpeg' %}" alt="" />
+          </div>
+        </div>
+      </header>
+      <div class="content"></div>
+    </main>
   </body>
 </html>
