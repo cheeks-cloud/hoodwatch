@@ -20,6 +20,10 @@ let postToggle = document.querySelector(".add-post");
 let updateDiv = document.querySelector("#user-edit-form");
 let closeUpdate = document.querySelector(".close-user-edit");
 
+let joinDiv = document.querySelector("#join-hood-form");
+let closeJoin = document.querySelector(".close-join-hood");
+let joinToggle = document.querySelector(".join-hood");
+
 if (avatar) {
   avatar.addEventListener("mouseover", () => {
     username.style.display = "none";
@@ -73,7 +77,7 @@ if (closeMessages) {
 }
 
 if (postToggle) {
-  postToggle.addEventListener("click", (e) => {
+  postToggle.addEventListener("click", () => {
     postDiv.style.display = "flex";
   });
 }
@@ -81,5 +85,17 @@ if (postToggle) {
 if (closePost) {
   closePost.addEventListener("click", () => {
     postDiv.style.display = "none";
+  });
+}
+
+if (joinToggle) {
+  joinToggle.addEventListener("click", () => {
+    joinDiv.style.display = "flex";
+  });
+}
+
+if (closeJoin) {
+  closeJoin.addEventListener("click", () => {
+    joinDiv.style.display = "none";
   });
 }
