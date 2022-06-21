@@ -35,13 +35,31 @@ def create_business(request):
             messages.success(request, 'Success! You new business has been created!')
             return redirect('neighborhood-home')
         else:
-            messages.warning(request, 'Failed! You new business could not be created!')
+            messages.warning(request, 'Failed! Your new business could not be created!')
             return redirect('neighborhood-home')
     else:
         return redirect('neighborhood-home', )
 
 
 
-
-
+@login_required
+def create_hood(request):
+    h_form = HoodCreationForm()
+    current_user = User.objects.get(username=request.user.username)
+    if request.method == 'POST':
+        h_form = HoodCreationForm(request.POST)
+        if h_form.is_valid():
+            new_hood = Neighborhood.objects.create(
+                hood_name = request.POST.get('hood_name'),
+                location = request.POST.get('location'),
+                admin = current_user
+            )
+            new_hood.save()
+            messages.success(request, 'Success! You have created a new hood!')
+            return redirect('neighborhood-home')
+        else:
+            messages.warning(request, 'Failed! The new hood could not be created')
+            return redirect('neighborhood-home')
+    else:
+        return redirect('neighborhood-home')
         

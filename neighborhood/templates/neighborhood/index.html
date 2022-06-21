@@ -15,6 +15,19 @@
   </head>
   <body>
     <main>
+      {% if messages %}
+      <!--  -->
+      {% for message in messages %}
+      <div id="system-messages">
+        <p class="close-messages">&times</p>
+        <div class="message">
+          <p>{{message}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <!--  -->
+      {% endif %}
+
       <header>
         <div class="left">
           <div class="logo">
@@ -62,8 +75,24 @@
               <p><span>Occupant Count : </span>&nbsp;Number of occupants</p>
             </div>
             <div class="cta">
-              <a href="">Switch Hood</a>
-              <a href="">Add Hood</a>
+              <span>Switch Hood</span>
+              <span class="add-hood">Add Hood</span>
+            </div>
+            <div id="hood-form">
+              <p class="close-hood">&times</p>
+              <div class="form">
+                <h3>Add Hood</h3>
+                <form
+                  action="{% url 'neighborhood-create-hood' %}"
+                  method="post"
+                >
+                  {% csrf_token %}
+                  <!--  -->
+                  {{h_form}}
+                  <!--  -->
+                  <input type="submit" value="Create" />
+                </form>
+              </div>
             </div>
           </div>
           <div class="businesses">
