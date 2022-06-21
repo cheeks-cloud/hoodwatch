@@ -9,6 +9,8 @@ psycopg2 = "*"
 python-dotenv = "*"
 pillow = "*"
 django-cloudinary-storage = "*"
+whitenoise = "*"
+django-heroku = "*"
 
 [dev-packages]
 

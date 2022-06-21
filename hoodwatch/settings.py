@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 import os
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#+dhdty9qap3&^fg2_rt#_q1nl=&u#47*0vaz565#$h(l73%!q'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'hoodwatch.urls'
@@ -130,6 +132,12 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -142,3 +150,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'users-signin'
 LOGIN_REDIRECT_URL = 'neighborhood-home'
 LOGOUT_REDIRECT_URL = 'users-signin'
+
+django_heroku.settings(locals())
