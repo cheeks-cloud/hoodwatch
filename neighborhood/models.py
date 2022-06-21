@@ -5,13 +5,13 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Neighborhood(models.Model):
-    name = models.CharField(max_length=1000)
+    hood_name = models.CharField(max_length=1000)
     location = models.CharField(max_length=1000)
     occupants = models.PositiveIntegerField(default=0, blank=True)
     admin = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, default=None)
 
     def __str__(self):
-        return self.name.title()
+        return self.hood_name.title()
 
     def create_neighborhood(self):
         self.save()
@@ -39,13 +39,13 @@ class Neighborhood(models.Model):
 
 
 class Business(models.Model):
-    name = models.CharField(max_length=1000)
-    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+    business_name = models.CharField(max_length=1000)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True)
+    hood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, null=True, blank=True)
     email = models.EmailField(max_length=1000)
 
     def __str__(self):
-        return self.name.title()
+        return self.business_name.title()
     
     def create_business(self):
         self.save()

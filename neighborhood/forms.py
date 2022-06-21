@@ -6,7 +6,7 @@ class CreateBusinessForm(forms.ModelForm):
     class Meta:
         model = Business
         fields = [
-            'name',
+            'business_name',
             'email'
         ]
 
@@ -15,7 +15,7 @@ class HoodCreationForm(forms.ModelForm):
     class Meta:
         model = Neighborhood
         fields = [
-            'name',
+            'hood_name',
             'location'
         ]
 

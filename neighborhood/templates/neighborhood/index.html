@@ -86,7 +86,18 @@
               <span>Business 15</span>
               <span class="add-business">Add Business</span>
               <div id="business-form">
-                
+                <div class="form">
+                  <form
+                    action="{% url 'neighborhood-create-business' %}"
+                    method="post"
+                  >
+                    {% csrf_token %}
+                    <!--  -->
+                    {{b_form}}
+                    <!--  -->
+                    <input type="submit" value="Create" />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
