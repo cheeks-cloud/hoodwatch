@@ -100,6 +100,12 @@ after that, install all the required depencencies
 $ pipenv install //pretty much takes care of installing all depencies for you
 ```
 
+Now that all your dependencies are installed, you need to create a local database for your project and run migrations, or use the database that django comes with by default. The Make file has instructions for this.
+
+```
+make migrate
+```
+
 After this, you can run the application using the commands that come in the make file. for this case, it is either of the following:
 
 ```
