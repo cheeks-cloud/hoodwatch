@@ -10,3 +10,17 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.user.username.title()}'s Profile "
+
+    def create_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+    
+    def update_profile(self, user, image, hood):
+        self.user = user
+        self.image = image
+        self.hood = hood
+        self.save()
+
+        
