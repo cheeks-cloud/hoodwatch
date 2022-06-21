@@ -7,7 +7,24 @@
 {% endblock %}
 
 <!--  -->
+{% block message %}
+<!--  -->
+{% if messages %}
+<!--  -->
+{% for message in messages %}
+<div id="system-messages">
+  <p class="close-messages">&times</p>
+  <div class="message">
+    <p>{{message}}</p>
+  </div>
+</div>
+{% endfor %}
+<!--  -->
+{% endif %}
+<!--  -->
+{% endblock %}
 
+<!--  -->
 {% block form_heading %}
 <h3>Sign In</h3>
 {% endblock %}

@@ -17,6 +17,22 @@
   </head>
   <body>
     <main>
+      {% block message %}
+      <!--  -->
+      {% if messages %}
+      <!--  -->
+      {% for message in messages %}
+      <div id="system-messages">
+        <p class="close-messages">&times</p>
+        <div class="message">
+          <p>{{message}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endblock %}
       <div class="welcome">
         <h1>Welcome to <span>HoodWatch</span>.</h1>
         <h2>
@@ -43,5 +59,6 @@
         </form>
       </div>
     </main>
+    <script src="{% static 'neighborhood/js/index.js' %}"></script>
   </body>
 </html>

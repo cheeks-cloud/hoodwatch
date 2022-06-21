@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserSignupForm
+from .forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -17,6 +17,7 @@ def signup(request):
             messages.success(request, f"Thank you, {username}. Your accout has been successfuly created! Login to continue...")
             return redirect('users-signin')
         else:
+            messages.warning(request, 'Something went wrong with the application')
             return render(request, 'users/signup.html', context)
     else:
         return render(request, 'users/signup.html', context)
@@ -24,5 +25,19 @@ def signup(request):
 
 
 @login_required
-def update(request, user_id):
-    pass
+def update(request):
+    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm()
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'Success! Your accout has been successfuly updated!')
+            return redirect('neighborhood-home')
+        else:
+            messages.warning(request, 'Failed! Your accout could not be updated!')
+            return redirect('neighborhood-home')
+    else:
+        return redirect('neighborhood-home')

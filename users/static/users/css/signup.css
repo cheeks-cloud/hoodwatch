@@ -51,6 +51,76 @@ main {
           justify-content: space-between;
 }
 
+main #system-messages {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10%;
+  -webkit-animation: appear 0.5s;
+          animation: appear 0.5s;
+}
+
+main #system-messages .close-messages {
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  color: #fff;
+  border-radius: 50%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5vw;
+  background-color: #00c58d;
+  top: 39%;
+  right: 28%;
+  cursor: pointer;
+}
+
+main #system-messages .message {
+  border: 0.1vw solid #00c58d;
+  border-radius: 0.5vw;
+  width: 50%;
+  background-color: #000;
+  padding: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main #system-messages .message p {
+  color: #fff;
+  font-size: 1vw;
+}
+
 main .welcome {
   padding-right: 5%;
   padding-top: 10%;

@@ -17,31 +17,41 @@ let postDiv = document.querySelector("#post-form");
 let closePost = document.querySelector(".close-post");
 let postToggle = document.querySelector(".add-post");
 
-avatar.addEventListener("mouseover", () => {
-  username.style.display = "none";
-  edit.style.display = "block";
-});
+if (avatar) {
+  avatar.addEventListener("mouseover", () => {
+    username.style.display = "none";
+    edit.style.display = "block";
+  });
 
-avatar.addEventListener("mouseout", () => {
-  edit.style.display = "none";
-  username.style.display = "block";
-});
+  avatar.addEventListener("mouseout", () => {
+    edit.style.display = "none";
+    username.style.display = "block";
+  });
+}
 
-businessToggle.addEventListener("click", () => {
-  businessDiv.style.display = "flex";
-});
+if (businessToggle) {
+  businessToggle.addEventListener("click", () => {
+    businessDiv.style.display = "flex";
+  });
+}
 
-closeBusiness.addEventListener("click", () => {
-  businessDiv.style.display = "none";
-});
+if (closeBusiness) {
+  closeBusiness.addEventListener("click", () => {
+    businessDiv.style.display = "none";
+  });
+}
 
-hoodToggle.addEventListener("click", () => {
-  hoodDiv.style.display = "flex";
-});
+if (hoodToggle) {
+  hoodToggle.addEventListener("click", () => {
+    hoodDiv.style.display = "flex";
+  });
+}
 
-closeHood.addEventListener("click", () => {
-  hoodDiv.style.display = "none";
-});
+if (closeHood) {
+  closeHood.addEventListener("click", () => {
+    hoodDiv.style.display = "none";
+  });
+}
 
 if (closeMessages) {
   closeMessages.addEventListener("click", () => {
@@ -49,10 +59,14 @@ if (closeMessages) {
   });
 }
 
-postToggle.addEventListener("click", (e) => {
-  postDiv.style.display = "flex";
-});
+if (postToggle) {
+  postToggle.addEventListener("click", (e) => {
+    postDiv.style.display = "flex";
+  });
+}
 
-closePost.addEventListener("click", () => {
-  postDiv.style.display = "none";
-});
+if (closePost) {
+  closePost.addEventListener("click", () => {
+    postDiv.style.display = "none";
+  });
+}
