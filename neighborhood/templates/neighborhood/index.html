@@ -22,9 +22,16 @@
               <h1>Hood<span>Watch</span></h1></a
             >
           </div>
+          <div class="search">
+            <form action="">
+              {% csrf_token %}
+              <input type="text" placeholder="search business" />
+              <input type="submit" value="Search" />
+            </form>
+          </div>
           <div class="links">
             <ul>
-              <li><a href="">Add Post</a></li>
+              <li>Add Post</li>
             </ul>
           </div>
         </div>

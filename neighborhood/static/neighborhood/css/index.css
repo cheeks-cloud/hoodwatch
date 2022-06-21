@@ -88,7 +88,7 @@ main header .left {
 }
 
 main header .left .logo {
-  width: 30%;
+  width: 25%;
   margin-right: 10%;
 }
 
@@ -106,7 +106,7 @@ main header .left .logo a h1 span {
 }
 
 main header .left .links {
-  width: 70%;
+  width: 20%;
 }
 
 main header .left .links ul {
@@ -124,21 +124,83 @@ main header .left .links ul {
 
 main header .left .links ul li {
   margin: 0 10%;
-}
-
-main header .left .links ul li a {
   text-decoration: none;
   color: #fff;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   font-size: 1vw;
   font-weight: 500;
+  cursor: pointer;
 }
 
-main header .left .links ul li a:hover {
+main header .left .links ul li:hover {
   color: #00c58d;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+}
+
+main header .left .search {
+  width: 55%;
+  margin-left: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main header .left .search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main header .left .search form input {
+  padding: 2% 4%;
+  outline: none;
+  border-radius: 0.3vw 0 0 0.3vw;
+  border: 0.1vw solid #00c58d;
+  border-width: 0.1vw 0 0.1vw 0.1vw;
+  background-color: transparent;
+  font-size: 0.8vw;
+  color: #fff;
+}
+
+main header .left .search form input::-webkit-input-placeholder {
+  color: #9c9c9c;
+}
+
+main header .left .search form input:-ms-input-placeholder {
+  color: #9c9c9c;
+}
+
+main header .left .search form input::-ms-input-placeholder {
+  color: #9c9c9c;
+}
+
+main header .left .search form input::placeholder {
+  color: #9c9c9c;
+}
+
+main header .left .search form input[type="submit"] {
+  border-width: 0.1vw;
+  border-radius: 0 0.3vw 0.3vw 0;
+  cursor: pointer;
+}
+
+main header .left .search form input[type="submit"]:hover {
+  color: #fff;
+  background-color: #00c58d;
 }
 
 main header .right {

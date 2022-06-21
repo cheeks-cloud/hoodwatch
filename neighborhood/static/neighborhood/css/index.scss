@@ -29,7 +29,7 @@ main {
       align-items: center;
       justify-content: flex-start;
       .logo {
-        width: 30%;
+        width: 25%;
         margin-right: 10%;
         a {
           text-decoration: none;
@@ -43,7 +43,7 @@ main {
         }
       }
       .links {
-        width: 70%;
+        width: 20%;
         ul {
           display: flex;
           align-items: center;
@@ -51,16 +51,49 @@ main {
           list-style: none;
           li {
             margin: 0 10%;
-            a {
-              text-decoration: none;
-              color: #fff;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.2s ease-in-out;
+            font-size: 1vw;
+            font-weight: 500;
+            cursor: pointer;
+            &:hover {
+              color: $primary_color;
               transition: 0.2s ease-in-out;
-              font-size: 1vw;
-              font-weight: 500;
-              &:hover {
-                color: $primary_color;
-                transition: 0.2s ease-in-out;
-              }
+            }
+          }
+        }
+      }
+      .search {
+        width: 55%;
+        margin-left: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        form {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          input {
+            padding: 2% 4%;
+            outline: none;
+            border-radius: 0.3vw 0 0 0.3vw;
+            border: 0.1vw solid $primary_color;
+            border-width: 0.1vw 0 0.1vw 0.1vw;
+            background-color: transparent;
+            font-size: 0.8vw;
+            color: #fff;
+            &::placeholder {
+              color: rgb(156, 156, 156);
+            }
+          }
+          input[type="submit"] {
+            border-width: 0.1vw;
+            border-radius: 0 0.3vw 0.3vw 0;
+            cursor: pointer;
+            &:hover {
+              color: #fff;
+              background-color: $primary_color;
             }
           }
         }
