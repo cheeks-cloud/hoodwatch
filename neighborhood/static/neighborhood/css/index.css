@@ -979,6 +979,17 @@ main .content .left .businesses h3 {
   margin-bottom: 5%;
 }
 
+main .content .left .businesses h3 span {
+  font-size: 1.1vw;
+  margin-left: 10%;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+main .content .left .businesses h3 span:hover {
+  color: #fff;
+}
+
 main .content .left .businesses .all-businesses {
   height: 100%;
   overflow: auto;
@@ -988,15 +999,14 @@ main .content .left .businesses .all-businesses::-webkit-scrollbar {
   display: none;
 }
 
-main .content .left .businesses .all-businesses span {
-  text-align: center;
+main .content .left .businesses .all-businesses .business-item {
   display: inline-block;
-  width: 28%;
+  width: 45%;
   text-decoration: none;
   color: #fff;
   background-color: #00c58d;
   border: 0.1vw solid #00c58d;
-  padding: 1.5% 3%;
+  padding: 3%;
   margin: 2%;
   border-radius: 0.3vw;
   font-size: 0.8vw;
@@ -1004,9 +1014,10 @@ main .content .left .businesses .all-businesses span {
   cursor: pointer;
 }
 
-main .content .left .businesses .all-businesses span:hover {
-  background-color: transparent;
-  color: #00c58d;
+main .content .left .businesses .all-businesses .business-item h3 {
+  color: #fff;
+  font-size: 1.2vw;
+  margin-bottom: 2%;
 }
 
 main .content .left .businesses .all-businesses .add-business {

@@ -647,6 +647,15 @@ main {
           text-transform: capitalize;
           font-size: 1.5vw;
           margin-bottom: 5%;
+          span {
+            font-size: 1.1vw;
+            margin-left: 10%;
+            text-transform: lowercase;
+            cursor: pointer;
+            &:hover {
+              color: #fff;
+            }
+          }
         }
         .all-businesses {
           height: 100%;
@@ -654,23 +663,23 @@ main {
           &::-webkit-scrollbar {
             display: none;
           }
-          span {
-            text-align: center;
+          .business-item {
             display: inline-block;
-            width: 28%;
+            width: 45%;
             text-decoration: none;
             color: #fff;
             background-color: $primary_color;
             border: 0.1vw solid $primary_color;
-            padding: 1.5% 3%;
+            padding: 3%;
             margin: 2%;
             border-radius: 0.3vw;
             font-size: 0.8vw;
             font-weight: 500;
             cursor: pointer;
-            &:hover {
-              background-color: transparent;
-              color: $primary_color;
+            h3 {
+              color: #fff;
+              font-size: 1.2vw;
+              margin-bottom: 2%;
             }
           }
           .add-business {
