@@ -27,7 +27,23 @@
       {% endfor %}
       <!--  -->
       {% endif %}
-
+      <div id="post-form">
+        <p class="close-post">&times</p>
+        <div class="form">
+          <h3>Add Hood</h3>
+          <form
+            action="{% url 'neighborhood-create-post' %}"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <!--  -->
+            {{post_form}}
+            <!--  -->
+            <input type="submit" value="Create" />
+          </form>
+        </div>
+      </div>
       <header>
         <div class="left">
           <div class="logo">
@@ -44,7 +60,7 @@
           </div>
           <div class="links">
             <ul>
-              <li>Add Post</li>
+              <li class="add-post">Add Post</li>
             </ul>
           </div>
         </div>
@@ -63,6 +79,7 @@
           </div>
         </div>
       </header>
+
       <div class="content">
         <div class="left">
           <div class="hood">

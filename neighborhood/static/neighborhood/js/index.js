@@ -13,6 +13,10 @@ let closeHood = document.querySelector(".close-hood");
 let messageDiv = document.querySelector("#system-messages");
 let closeMessages = document.querySelector(".close-messages");
 
+let postDiv = document.querySelector("#post-form");
+let closePost = document.querySelector(".close-post");
+let postToggle = document.querySelector(".add-post");
+
 avatar.addEventListener("mouseover", () => {
   username.style.display = "none";
   edit.style.display = "block";
@@ -39,6 +43,16 @@ closeHood.addEventListener("click", () => {
   hoodDiv.style.display = "none";
 });
 
-closeMessages.addEventListener("click", () => {
-  messageDiv.style.display = "none";
+if (closeMessages) {
+  closeMessages.addEventListener("click", () => {
+    messageDiv.style.display = "none";
+  });
+}
+
+postToggle.addEventListener("click", (e) => {
+  postDiv.style.display = "flex";
+});
+
+closePost.addEventListener("click", () => {
+  postDiv.style.display = "none";
 });

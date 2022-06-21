@@ -76,6 +76,7 @@ def create_post(request):
             new_post = Post.objects.create(
                 title = post_form.cleaned_data.get('title'),
                 image = post_form.cleaned_data.get('image'),
+                content = post_form.cleaned_data.get('content'),
                 user = current_user,
                 hood = current_user.profile.hood
             )
