@@ -1027,8 +1027,12 @@ main .content .left .businesses .all-businesses .business-item {
 
 main .content .left .businesses .all-businesses .business-item h3 {
   color: #fff;
-  font-size: 1.2vw;
+  font-size: 1vw;
   margin-bottom: 2%;
+}
+
+main .content .left .businesses .all-businesses .business-item p {
+  font-size: 0.9vw;
 }
 
 main .content .left .businesses .all-businesses .add-business {

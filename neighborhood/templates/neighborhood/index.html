@@ -54,9 +54,9 @@
             >
           </div>
           <div class="search">
-            <form action="">
+            <form action="{% url 'neighborhood-search' %}" method="post">
               {% csrf_token %}
-              <input type="text" placeholder="search business" />
+              <input type="text" placeholder="search business" name="search" />
               <input type="submit" value="Search" />
             </form>
           </div>
@@ -111,6 +111,7 @@
 
       <div class="content">
         <div class="left">
+          {% block left_content %}
           <div class="hood">
             <h3>neighborhood Info :</h3>
             {% if hood %}
@@ -216,6 +217,7 @@
               </div>
             </div>
           </div>
+          {% endblock %}
         </div>
 
         <div class="right">

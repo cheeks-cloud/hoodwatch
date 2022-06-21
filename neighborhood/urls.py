@@ -8,6 +8,7 @@ urlpatterns = [
     path('create_hood/', views.create_hood, name='neighborhood-create-hood'),
     path('create_post/', views.create_post, name='neighborhood-create-post'),
     path('join_hood/', views.join_hood, name='neighborhood-join-hood'),
-    path('post/<post_id>', views.single_post, name='neighborhood-post')
+    path('post/<post_id>', views.single_post, name='neighborhood-post'),
+    path('search/', views.search, name='neighborhood-search')
 ]
 

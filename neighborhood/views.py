@@ -72,6 +72,37 @@ def single_post(request, post_id):
 
 
 @login_required
+def search(request):
+    post_form = PostCreationForm()
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    current_user = User.objects.get(username=request.user.username)
+    user_hood = current_user.profile.hood
+    if user_hood:
+        hood = Neighborhood.objects.get(hood_name=current_user.profile.hood.hood_name)
+    else:
+        hood = None
+    posts = Post.objects.filter(hood=hood)
+    context = {
+        'post_form': post_form,
+        'u_form': u_form,
+        'p_form': p_form,
+        'current_user': current_user,
+        'hood': hood,
+        'posts': posts
+    }
+    if request.method == 'POST':
+        results = Business.objects.filter(business_name__icontains = request.POST.get('search'))
+        if results:
+            all_results = {'search_results': results}
+        else:
+            all_results = {'search_results': None}
+        context.update(all_results)
+        return render(request, 'neighborhood/search.html', context)
+
+
+
+@login_required
 def create_business(request):
     b_form = CreateBusinessForm()
     current_user = User.objects.get(username=request.user.username)

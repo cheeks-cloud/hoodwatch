@@ -1,0 +1,30 @@
+{% extends 'neighborhood/index.html' %}
+
+<!--  -->
+
+{% block title %}
+<title>search</title>
+{% endblock %}
+
+<!--  -->
+
+{% block left_content %}
+<div class="businesses" style="margin-top: 0">
+  <h3>Business Search Results:</h3>
+  <div class="all-businesses">
+    {% if search_results %}
+    <!--  -->
+    {% for result in search_results %}
+    <div class="business-item">
+      <h3>{{result.business_name|title}}</h3>
+      <p>Owner: {{result.user.username|title}}</p>
+      <p>Email: {{result.email}}</p>
+    </div>
+    {% endfor %}
+    <!--  -->
+    {% else %}
+    <p>There are no results for your search term</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
