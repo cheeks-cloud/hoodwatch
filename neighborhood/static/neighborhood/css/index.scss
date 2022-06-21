@@ -86,6 +86,7 @@ main {
           border-radius: 50%;
           width: 100%;
           object-fit: cover;
+          cursor: pointer;
         }
       }
       .info {
@@ -93,6 +94,7 @@ main {
         p {
           color: #fff;
           font-size: 1vw;
+          animation: appear 0.3s;
         }
         a {
           text-decoration: none;
@@ -103,6 +105,9 @@ main {
             color: #fff;
             transition: 0.2s ease-in-out;
           }
+        }
+        .hover {
+          display: none;
         }
       }
     }
@@ -189,6 +194,25 @@ main {
             &:hover {
               background-color: transparent;
               color: $primary_color;
+            }
+          }
+          .add-business {
+            text-align: center;
+            display: inline-block;
+            width: 28%;
+            text-decoration: none;
+            color: $primary_color;
+            background-color: transparent;
+            border: 0.1vw solid $primary_color;
+            padding: 1.5% 3%;
+            margin: 2%;
+            border-radius: 0.3vw;
+            font-size: 0.8vw;
+            font-weight: 500;
+            cursor: pointer;
+            &:hover {
+              background-color: $primary_color;
+              color: #fff;
             }
           }
         }

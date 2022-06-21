@@ -178,6 +178,7 @@ main header .right .image img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 
 main header .right .info {
@@ -187,6 +188,8 @@ main header .right .info {
 main header .right .info p {
   color: #fff;
   font-size: 1vw;
+  -webkit-animation: appear 0.3s;
+          animation: appear 0.3s;
 }
 
 main header .right .info a {
@@ -201,6 +204,10 @@ main header .right .info a:hover {
   color: #fff;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+}
+
+main header .right .info .hover {
+  display: none;
 }
 
 main .content {
@@ -303,6 +310,27 @@ main .content .left .businesses .all-businesses span {
 main .content .left .businesses .all-businesses span:hover {
   background-color: transparent;
   color: #00c58d;
+}
+
+main .content .left .businesses .all-businesses .add-business {
+  text-align: center;
+  display: inline-block;
+  width: 28%;
+  text-decoration: none;
+  color: #00c58d;
+  background-color: transparent;
+  border: 0.1vw solid #00c58d;
+  padding: 1.5% 3%;
+  margin: 2%;
+  border-radius: 0.3vw;
+  font-size: 0.8vw;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+main .content .left .businesses .all-businesses .add-business:hover {
+  background-color: #00c58d;
+  color: #fff;
 }
 
 main .content .right {
