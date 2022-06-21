@@ -1,0 +1,28 @@
+{% extends 'neighborhood/index.html' %}
+
+<!--  -->
+
+{% block title %}
+<title>post</title>
+{% endblock %}
+
+<!--  -->
+
+{% block posts %}
+<div class="single-post">
+  {% if post %}
+  <h3>{{post.title|title}}</h3>
+  <br />
+  <div class="post-body">
+    <div class="image">
+      <img src="{{post.image.url}}" alt="{{post.title}}" />
+    </div>
+    <br />
+    <div class="content">
+      <p>{{post.content}}</p>
+    </div>
+  </div>
+
+  {% endif %}
+</div>
+{% endblock %}

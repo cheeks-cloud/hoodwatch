@@ -1,5 +1,3 @@
-from distutils.command.upload import upload
-from pyexpat import model
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -7,8 +5,8 @@ from django.contrib.auth.models import User
 class Neighborhood(models.Model):
     hood_name = models.CharField(max_length=1000)
     location = models.CharField(max_length=1000)
-    occupants = models.PositiveIntegerField(default=0, blank=True)
-    admin = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, default=None)
+    occupants = models.PositiveIntegerField(default=1, blank=True)
+    admin = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, default=None, null=True)
 
     def __str__(self):
         return self.hood_name.title()

@@ -11,7 +11,9 @@
       href="{% static 'neighborhood/images/community.png' %}"
       type="image/x-icon"
     />
+    {% block title %}
     <title>Home</title>
+    {% endblock %}
   </head>
   <body>
     <main>
@@ -60,7 +62,9 @@
           </div>
           <div class="links">
             <ul>
+              {% if hood %}
               <li class="add-post">Add Post</li>
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -113,7 +117,7 @@
             <div class="info">
               <p><span>Name : </span>&nbsp; {{hood.hood_name}}</p>
 
-              <p><span>Admin : </span>&nbsp;{{hood.admin}}</p>
+              <p><span>Admin : </span>&nbsp;{{hood.admin|title}}</p>
 
               <p><span>Occupant Count : </span>&nbsp; {{hood.occupants}}</p>
             </div>
@@ -133,10 +137,22 @@
                 <h3>Pick a Hood</h3>
                 <form action="{% url 'neighborhood-join-hood' %}" method="post">
                   {% csrf_token %}
+                  <!--  -->
+                  {% if all_hoods %}
                   <select name="hood-pick" id="hood-ick">
-                    <option value="none" selected>None</option>
+                    {% for hood in all_hoods%}
+                    <option value="{{hood.hood_name}}">
+                      {{hood.hood_name}}
+                    </option>
+                    {% endfor %}
                   </select>
                   <input type="submit" value="Join" />
+                  {% else %}
+                  <p>
+                    There are no hoods to join at the moment. You should create
+                    one!
+                  </p>
+                  {% endif %}
                 </form>
               </div>
             </div>
@@ -170,9 +186,9 @@
               <!--  -->
               {% for business in businesses %}
               <div class="business-item">
-                <h3>Business Name</h3>
-                <p>Owner: Owner's Name</p>
-                <p>Email: Contact Email</p>
+                <h3>{{business.business_name|title}}</h3>
+                <p>Owner: {{business.user.username|title}}</p>
+                <p>Email: {{business.email}}</p>
               </div>
               {% endfor %}
               <!--  -->
@@ -203,130 +219,40 @@
         </div>
 
         <div class="right">
+          {% block posts %}
           <div class="posts">
             <h3>Posts :</h3>
             <div class="all-posts">
-              {% if posts %}{% else %}{% endif %}
-              <!-- test post -->
+              {% if posts %}
+              <!--  -->
+              {% for post in posts %}
               <div class="post">
                 <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
+                  <img src="{{post.image.url}}" alt="post title" />
                 </div>
                 <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
+                  <a href="{% url 'neighborhood-post' post.id %}"
+                    >{{post.content|truncatechars:150}}</a
                   >
                 </div>
               </div>
-
-              <!-- test post -->
+              {% endfor %}
+              <!--  -->
+              {% else %}
               <div class="post">
-                <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
-                </div>
-                <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
-                  >
-                </div>
+                {% if hood %}
+                <p>There are no posts for this neighborhood yet.</p>
+                {% else %}
+                <p>
+                  You have to be a part of a neighborhood to see a
+                  neighborhood's post.
+                </p>
+                {% endif %}
               </div>
-
-              <!-- test post -->
-              <div class="post">
-                <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
-                </div>
-                <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
-                  >
-                </div>
-              </div>
-
-              <!-- test post -->
-              <div class="post">
-                <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
-                </div>
-                <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
-                  >
-                </div>
-              </div>
-
-              <!-- test post -->
-              <div class="post">
-                <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
-                </div>
-                <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
-                  >
-                </div>
-              </div>
-
-              <!-- test post -->
-              <div class="post">
-                <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
-                </div>
-                <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
-                  >
-                </div>
-              </div>
-
-              <!-- test post -->
-              <div class="post">
-                <div class="image">
-                  <img
-                    src="{% static 'neighborhood/images/neighborhood.jpg' %}"
-                    alt="post title"
-                  />
-                </div>
-                <div class="excerpt">
-                  <a href=""
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptate officiis tempora quae velit culpa aspernatur earum
-                    quidem? Laborum, fugiat aliquam?</a
-                  >
-                </div>
-              </div>
+              {% endif %}
             </div>
           </div>
+          {% endblock %}
         </div>
       </div>
     </main>

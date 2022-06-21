@@ -17,6 +17,7 @@ def home(request):
     p_form = ProfileUpdateForm(instance=request.user.profile)
     current_user = User.objects.get(username=request.user.username)
     user_hood = current_user.profile.hood
+    all_hoods = Neighborhood.objects.all()
     if user_hood:
         hood = Neighborhood.objects.get(hood_name=current_user.profile.hood.hood_name)
     else:
@@ -32,9 +33,42 @@ def home(request):
         'current_user': current_user,
         'hood': hood,
         'posts': posts,
-        'businesses': businesses
+        'businesses': businesses,
+        'all_hoods': all_hoods
     }
     return render(request, 'neighborhood/index.html', context)
+
+
+@login_required
+def single_post(request, post_id):
+    b_form = CreateBusinessForm()
+    h_form = HoodCreationForm()
+    post_form = PostCreationForm()
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    current_user = User.objects.get(username=request.user.username)
+    user_hood = current_user.profile.hood
+    all_hoods = Neighborhood.objects.all()
+    post = Post.objects.get(id=post_id)
+    if user_hood:
+        hood = Neighborhood.objects.get(hood_name=current_user.profile.hood.hood_name)
+    else:
+        hood = None
+    businesses = Business.objects.filter(hood=hood)
+    context = {
+        'b_form': b_form,
+        'h_form': h_form,
+        'post_form': post_form,
+        'u_form': u_form,
+        'p_form': p_form,
+        'current_user': current_user,
+        'hood': hood,
+        'businesses': businesses,
+        'all_hoods': all_hoods,
+        'post': post
+    }
+    return render(request, 'neighborhood/post.html', context)
+
 
 
 @login_required
@@ -73,7 +107,9 @@ def create_hood(request):
                 location = h_form.cleaned_data.get('location'),
                 admin = current_user
             )
+            current_user.profile.hood = new_hood
             new_hood.save()
+            current_user.save()
             messages.success(request, 'Success! You have created a new hood!')
             return redirect('neighborhood-home')
         else:
@@ -113,10 +149,16 @@ def join_hood(request):
     if request.method == 'POST':
         if request.POST.get('hood-pick'):
             hood = Neighborhood.objects.get(hood_name=request.POST.get('hood-pick'))
-            current_user.profile.hood = hood
-            current_user.save()
-            messages.success(request, f'Success! You have joined the {hood.hood_name} Neighborhood')
-            return redirect('neighborhood-home')
+            if current_user.profile.hood == hood:
+                messages.success(request, f'You are already a part of this Neighborhood')
+                return redirect('neighborhood-home')
+            else:
+                current_user.profile.hood = hood
+                hood.occupants += 1
+                hood.save()
+                current_user.save()
+                messages.success(request, f'Success! You have joined the {hood.hood_name} Neighborhood')
+                return redirect('neighborhood-home')
         else:
             messages.warning(request, 'Something went wrong! Retry')
             return redirect('neighborhood-home')
