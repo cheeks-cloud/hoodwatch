@@ -463,6 +463,7 @@ main header .right .info p {
   font-size: 1vw;
   -webkit-animation: appear 0.3s;
           animation: appear 0.3s;
+  text-transform: capitalize;
 }
 
 main header .right .info a {
@@ -583,6 +584,11 @@ main header #user-edit-form .form form label {
   color: #00c58d;
   font-size: 1vw;
   margin-top: 10%;
+}
+
+main header #user-edit-form .form form a {
+  color: #00c58d;
+  font-size: 0.9vw;
 }
 
 main header #user-edit-form .form form input {
@@ -997,6 +1003,11 @@ main .content .left .businesses .all-businesses {
 
 main .content .left .businesses .all-businesses::-webkit-scrollbar {
   display: none;
+}
+
+main .content .left .businesses .all-businesses p {
+  color: #fff;
+  font-size: 1vw;
 }
 
 main .content .left .businesses .all-businesses .business-item {

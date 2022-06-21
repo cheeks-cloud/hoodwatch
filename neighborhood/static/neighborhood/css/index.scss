@@ -271,6 +271,7 @@ main {
           color: #fff;
           font-size: 1vw;
           animation: appear 0.3s;
+          text-transform: capitalize;
         }
         a {
           text-decoration: none;
@@ -348,6 +349,10 @@ main {
             color: $primary_color;
             font-size: 1vw;
             margin-top: 10%;
+          }
+          a {
+            color: $primary_color;
+            font-size: 0.9vw;
           }
 
           input {
@@ -662,6 +667,10 @@ main {
           overflow: auto;
           &::-webkit-scrollbar {
             display: none;
+          }
+          p {
+            color: #fff;
+            font-size: 1vw;
           }
           .business-item {
             display: inline-block;

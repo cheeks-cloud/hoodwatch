@@ -66,14 +66,20 @@
         </div>
         <div class="right">
           <div class="info">
-            <p class="normal">Username</p>
+            {% if current_user.first_name and current_user.last_name %}
+            <p class="normal">
+              {{current_user.first_name}} {{current_user.last_name}}
+            </p>
+            {% else %}
+            <p class="normal">{{current_user.username}}</p>
+            {% endif %}
             <p class="hover">Edit Profile</p>
             <a href="{% url 'users-signout' %}">Sign Out</a>
           </div>
           <div class="image">
             <img
               class="toggle"
-              src="{% static 'neighborhood/images/sam.jpeg' %}"
+              src="{{current_user.profile.image.url}}"
               alt=""
             />
           </div>
@@ -82,7 +88,11 @@
           <p class="close-user-edit">&times</p>
           <div class="form">
             <h3>Update your Profile</h3>
-            <form action="{% url 'users-update-user' %}" method="post">
+            <form
+              action="{% url 'users-update-user' %}"
+              method="post"
+              enctype="multipart/form-data"
+            >
               {% csrf_token %}
               <!--  -->
               {{u_form}}
@@ -99,13 +109,20 @@
         <div class="left">
           <div class="hood">
             <h3>neighborhood Info :</h3>
+            {% if hood %}
             <div class="info">
-              <p><span>Name : </span>&nbsp;Neighborhood Name</p>
+              <p><span>Name : </span>&nbsp; {{hood.hood_name}}</p>
 
-              <p><span>Admin : </span>&nbsp;Admin Name</p>
+              <p><span>Admin : </span>&nbsp;{{hood.admin}}</p>
 
-              <p><span>Occupant Count : </span>&nbsp;Number of occupants</p>
+              <p><span>Occupant Count : </span>&nbsp; {{hood.occupants}}</p>
             </div>
+            {% else %}
+            <div class="info">
+              <p>You are not a part of any neighborhood . . .</p>
+            </div>
+            {% endif %}
+
             <div class="cta">
               <span class="join-hood">Join a Hood</span>
               <span class="add-hood">Add a Hood</span>
@@ -142,36 +159,28 @@
           </div>
           <div class="businesses">
             <h3>
-              Businesses : <span class="add-business">&plus; Add Business</span>
+              Businesses :
+              <!--  -->
+              {% if hood %}
+              <span class="add-business">&plus; Add Business</span>
+              {% endif %}
             </h3>
             <div class="all-businesses">
-              <!-- test item -->
+              {% if businesses %}
+              <!--  -->
+              {% for business in businesses %}
               <div class="business-item">
                 <h3>Business Name</h3>
                 <p>Owner: Owner's Name</p>
                 <p>Email: Contact Email</p>
               </div>
-
-              <!-- test item -->
-              <div class="business-item">
-                <h3>Business Name</h3>
-                <p>Owner: Owner's Name</p>
-                <p>Email: Contact Email</p>
-              </div>
-
-              <!-- test item -->
-              <div class="business-item">
-                <h3>Business Name</h3>
-                <p>Owner: Owner's Name</p>
-                <p>Email: Contact Email</p>
-              </div>
-
-              <!-- test item -->
-              <div class="business-item">
-                <h3>Business Name</h3>
-                <p>Owner: Owner's Name</p>
-                <p>Email: Contact Email</p>
-              </div>
+              {% endfor %}
+              <!--  -->
+              {% elif hood %}
+              <p>There are no businesses in this hood yet</p>
+              {% else %}
+              <p>Join a hood to view the businesses available</p>
+              {% endif %}
 
               <div id="business-form">
                 <p class="close-business">&times</p>
@@ -197,6 +206,7 @@
           <div class="posts">
             <h3>Posts :</h3>
             <div class="all-posts">
+              {% if posts %}{% else %}{% endif %}
               <!-- test post -->
               <div class="post">
                 <div class="image">

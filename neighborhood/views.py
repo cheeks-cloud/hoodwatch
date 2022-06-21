@@ -15,12 +15,24 @@ def home(request):
     post_form = PostCreationForm()
     u_form = UserUpdateForm(instance=request.user)
     p_form = ProfileUpdateForm(instance=request.user.profile)
+    current_user = User.objects.get(username=request.user.username)
+    user_hood = current_user.profile.hood
+    if user_hood:
+        hood = Neighborhood.objects.get(hood_name=current_user.profile.hood.hood_name)
+    else:
+        hood = None
+    posts = Post.objects.filter(hood=hood)
+    businesses = Business.objects.filter(hood=hood)
     context = {
         'b_form': b_form,
         'h_form': h_form,
         'post_form': post_form,
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'current_user': current_user,
+        'hood': hood,
+        'posts': posts,
+        'businesses': businesses
     }
     return render(request, 'neighborhood/index.html', context)
 
