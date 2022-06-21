@@ -24,15 +24,16 @@ class Neighborhood(models.Model):
         self.admin = admin
         self.save()
 
-    @classmethod
-    def find_neighborhood_by_id(cls, id):
-        hood = cls.objects.get(id=id)
+    @staticmethod
+    def find_neighborhood_by_id(id):
+        hood = Neighborhood.objects.get(id=id)
         return hood
     
-    @classmethod
-    def update_occupants(cls):
-        cls.occupants += 1
-
+    @staticmethod
+    def update_occupants(hood):
+        hood.occupants += 1
+        hood.save()
+        
 
 
 
@@ -58,9 +59,9 @@ class Business(models.Model):
         self.email = email
         self.save()
 
-    @classmethod
-    def find_business_by_id(cls, id):
-        business = cls.objects.get(id=id)
+    @staticmethod
+    def find_business_by_id( id):
+        business = Business.objects.get(id=id)
         return business
     
 
