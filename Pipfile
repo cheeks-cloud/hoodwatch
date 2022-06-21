@@ -11,6 +11,7 @@ pillow = "*"
 django-cloudinary-storage = "*"
 whitenoise = "*"
 django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 
