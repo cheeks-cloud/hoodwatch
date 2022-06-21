@@ -10,8 +10,10 @@ from django.contrib.auth.models import User
 @login_required
 def home(request):
     b_form = CreateBusinessForm()
+    h_form = HoodCreationForm()
     context = {
-        'b_form': b_form
+        'b_form': b_form,
+        'h_form': h_form
     }
     return render(request, 'neighborhood/index.html', context)
 
@@ -37,5 +39,9 @@ def create_business(request):
             return redirect('neighborhood-home')
     else:
         return redirect('neighborhood-home', )
+
+
+
+
 
         
