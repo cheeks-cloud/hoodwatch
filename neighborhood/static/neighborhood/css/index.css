@@ -1230,13 +1230,19 @@ main .content .right .posts .all-posts .post p {
 
 main .content .right .posts .all-posts .post .image {
   width: 30%;
+  height: 7vw;
   margin-right: 5%;
   border-radius: 0.5vw;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main .content .right .posts .all-posts .post .image img {
   width: 100%;
+  height: 100%;
   border-radius: 0.5vw;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main .content .right .posts .all-posts .post .excerpt {
