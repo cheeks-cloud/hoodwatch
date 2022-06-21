@@ -11,9 +11,11 @@ from django.contrib.auth.models import User
 def home(request):
     b_form = CreateBusinessForm()
     h_form = HoodCreationForm()
+    post_form = PostCreationForm()
     context = {
         'b_form': b_form,
-        'h_form': h_form
+        'h_form': h_form,
+        'post_form': post_form
     }
     return render(request, 'neighborhood/index.html', context)
 
@@ -28,8 +30,8 @@ def create_business(request):
             new_business = Business.objects.create(
                 user = current_user, 
                 hood = current_user.profile.hood, 
-                business_name = request.POST.get('business_name'),
-                email = request.POST.get('email')
+                business_name = b_form.cleaned_data.get('business_name'),
+                email = b_form.cleaned_data.get('email')
             )
             new_business.save()
             messages.success(request, 'Success! You new business has been created!')
@@ -50,8 +52,8 @@ def create_hood(request):
         h_form = HoodCreationForm(request.POST)
         if h_form.is_valid():
             new_hood = Neighborhood.objects.create(
-                hood_name = request.POST.get('hood_name'),
-                location = request.POST.get('location'),
+                hood_name = h_form.cleaned_data.get('hood_name'),
+                location = h_form.cleaned_data.get('location'),
                 admin = current_user
             )
             new_hood.save()
@@ -63,3 +65,25 @@ def create_hood(request):
     else:
         return redirect('neighborhood-home')
         
+
+@login_required
+def create_post(request):
+    post_form = PostCreationForm()
+    current_user = User.objects.get(username=request.user.username)
+    if request.method == 'POST':
+        post_form = PostCreationForm(request.POST, request.FILES)
+        if post_form.is_valid():
+            new_post = Post.objects.create(
+                title = post_form.cleaned_data.get('title'),
+                image = post_form.cleaned_data.get('image'),
+                user = current_user,
+                hood = current_user.profile.hood
+            )
+            new_post.save()
+            messages.success(request, 'Success! You have created a Post!')
+            return redirect('neighborhood-home')
+        else:
+            messages.warning(request, 'Failed! The new Post could not be created!')
+            return redirect('neighborhood-home')
+    else:
+        return redirect('neighborhood-home')
