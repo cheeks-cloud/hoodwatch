@@ -17,6 +17,9 @@ let postDiv = document.querySelector("#post-form");
 let closePost = document.querySelector(".close-post");
 let postToggle = document.querySelector(".add-post");
 
+let updateDiv = document.querySelector("#user-edit-form");
+let closeUpdate = document.querySelector(".close-user-edit");
+
 if (avatar) {
   avatar.addEventListener("mouseover", () => {
     username.style.display = "none";
@@ -26,6 +29,16 @@ if (avatar) {
   avatar.addEventListener("mouseout", () => {
     edit.style.display = "none";
     username.style.display = "block";
+  });
+
+  avatar.addEventListener("click", () => {
+    updateDiv.style.display = "flex";
+  });
+}
+
+if (closeUpdate) {
+  closeUpdate.addEventListener("click", () => {
+    updateDiv.style.display = "none";
   });
 }
 

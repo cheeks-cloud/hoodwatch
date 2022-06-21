@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from neighborhood.forms import *
+from users.forms import UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 from neighborhood.models import *
 from django.contrib.auth.models import User
@@ -12,10 +13,14 @@ def home(request):
     b_form = CreateBusinessForm()
     h_form = HoodCreationForm()
     post_form = PostCreationForm()
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
         'b_form': b_form,
         'h_form': h_form,
-        'post_form': post_form
+        'post_form': post_form,
+        'u_form': u_form,
+        'p_form': p_form
     }
     return render(request, 'neighborhood/index.html', context)
 
@@ -85,6 +90,23 @@ def create_post(request):
             return redirect('neighborhood-home')
         else:
             messages.warning(request, 'Failed! The new Post could not be created!')
+            return redirect('neighborhood-home')
+    else:
+        return redirect('neighborhood-home')
+
+
+@login_required
+def join_hood(request):
+    current_user = User.objects.get(username=request.user.username)
+    if request.method == 'POST':
+        if request.POST.get('hood-pick'):
+            hood = Neighborhood.objects.get(hood_name=request.POST.get('hood-pick'))
+            current_user.profile.hood = hood
+            current_user.save()
+            messages.success(request, f'Success! You have joined the {hood.hood_name} Neighborhood')
+            return redirect('neighborhood-home')
+        else:
+            messages.warning(request, 'Something went wrong! Retry')
             return redirect('neighborhood-home')
     else:
         return redirect('neighborhood-home')
