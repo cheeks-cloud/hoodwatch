@@ -820,6 +820,11 @@ main .content .left .hood #join-hood-form .form form select::-ms-expand {
   display: none;
 }
 
+main .content .left .hood #join-hood-form .form form select option {
+  color: #000;
+  background-color: #00c58d;
+}
+
 main .content .left .hood #join-hood-form .form form input {
   width: 100%;
   background-color: transparent;

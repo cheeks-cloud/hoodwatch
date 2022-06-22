@@ -524,6 +524,10 @@ main {
                 &::-ms-expand {
                   display: none;
                 }
+                option {
+                  color: #000;
+                  background-color: $primary_color;
+                }
               }
               input {
                 width: 100%;

@@ -180,8 +180,20 @@ def join_hood(request):
     if request.method == 'POST':
         if request.POST.get('hood-pick'):
             hood = Neighborhood.objects.get(hood_name=request.POST.get('hood-pick'))
+            print(current_user.profile.hood)
             if current_user.profile.hood == hood:
+                print(current_user.profile.hood.occupants)
                 messages.success(request, f'You are already a part of this Neighborhood')
+                return redirect('neighborhood-home')
+            elif current_user.profile.hood:
+                user_hood = Neighborhood.objects.get(hood_name=current_user.profile.hood.hood_name)
+                user_hood.occupants -= 1
+                user_hood.save()
+                current_user.profile.hood = hood
+                hood.occupants += 1
+                hood.save()
+                current_user.save()
+                messages.success(request, f'You have successfuly switched Neighborhoods')
                 return redirect('neighborhood-home')
             else:
                 current_user.profile.hood = hood
