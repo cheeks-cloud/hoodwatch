@@ -14,10 +14,12 @@
   <h3>{{post.title|title}}</h3>
   <br />
   <div class="post-body">
+    {% if post.image %}
     <div class="image">
       <img src="{{post.image.url}}" alt="{{post.title}}" />
     </div>
     <br />
+    {% endif %}
     <div class="content">
       <p>{{post.content}}</p>
     </div>

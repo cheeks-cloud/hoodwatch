@@ -229,9 +229,11 @@
               <!--  -->
               {% for post in posts %}
               <div class="post">
+                {% if post.image %}
                 <div class="image">
                   <img src="{{post.image.url}}" alt="post title" />
                 </div>
+                {% endif %}
                 <div class="excerpt">
                   <a href="{% url 'neighborhood-post' post.id %}"
                     >{{post.content|truncatechars:150}}</a
